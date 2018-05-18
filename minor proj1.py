@@ -101,11 +101,11 @@ elif ch=='7':
 
 	name=str(getname())
 	print 'list of IP addresses in the domain name:'
-	dom=commands.getoutput('dig name +short A')
+	dom=commands.getoutput('dig yahoo.com +short A')
 	print dom
 
 	print 'details of dns ownern or admin'
-	detail=commands.getoutput("whois adhocnw.org | grep -i 'Admin name\|admin email\|admin phone'")
+	detail=commands.getoutput("whois yahoo.com | grep -i 'Admin name\|admin email\|admin phone'")
 	print detail
 	
 else:
