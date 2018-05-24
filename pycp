@@ -1,0 +1,46 @@
+#!/usr/bin/python2
+
+import sys
+import os
+from pathlib import Path
+
+files=sys.argv[1:4] #--for INLINE ARGUMENTS
+
+#print files
+
+src_file=files[0] #extracting source file
+des_file=files[1]
+option=files[2]
+
+f1=open(src_file)  #by default read mode
+s_data=f1.read()
+f1.close()
+boole=os.path.isfile('des_file')  #check whether file or not
+
+if boole==True:
+	f2=open(des_file,'w')
+	f2.write(s_data)
+	f2.close()
+else:
+	fnew=raw_input( 'Enter the name of new file in which you want to copy:\n') 
+        #in case destination file name is not mentioned
+
+	p=Path(str(des_file))
+	path=p/str(fnew)  #append path
+        #print path
+	
+	if option=='-v':  #verbose facility
+		print '\ncopying.... '+src_file+' to destination '+des_file
+
+	elif option=='+v':
+		exit
+
+	else:
+		print '\nRefer to help---pycp'
+		exit
+
+	fl=open(str(path),'w')
+	fl.write(s_data)
+	fl.close()
+	
+ i
