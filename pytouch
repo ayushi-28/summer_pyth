@@ -1,0 +1,40 @@
+#!/usr/bin/python2
+
+
+#put this file in /usr/bin to run as a command
+#chmod +x pytouch to make it executable
+import sys
+import commands
+
+def createf(fl):
+        f=open(fl,'w')
+        f.close()
+        exit
+#creates new file when file doesnt exist
+
+filename=sys.argv[1:]
+count=len(filename)
+#read filenames
+
+list_file=commands.getoutput("find . type-f")
+#lists all files and subfiles within the directory
+
+all_file=list_file.split()
+#create list
+
+flag=0
+
+for j in range(0,count):
+	flag=0
+	for i in range(1,len(all_file)):
+		if './'+filename[j]==all_file[i]:
+			print 'old'
+			flag=1
+			f=open(filename[j],'r')
+			f.close()
+			exit
+	if flag==0:
+		createf(filename[j])		
+	exit
+	        
+#matches or searching of file
